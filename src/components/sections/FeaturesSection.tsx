@@ -36,10 +36,14 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="border-t border-border bg-card/50 py-20">
-      <div className="container mx-auto px-4">
+    <section className="relative border-t border-border bg-card/50 py-20 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/5 blur-3xl" />
+      
+      <div className="container relative mx-auto px-4">
         <div className="mx-auto mb-12 max-w-2xl text-center animate-fade-in">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
             AI-Powered Features
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -51,16 +55,19 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 animate-fade-in-up"
+              className="group relative border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-2 animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardHeader>
-                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+              {/* Card glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+              
+              <CardHeader className="relative">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/20 transition-transform group-hover:scale-110">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle className="text-lg font-semibold text-foreground">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <CardDescription className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </CardDescription>
