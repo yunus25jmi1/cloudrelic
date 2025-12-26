@@ -1,38 +1,41 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import FlatIcon from "@/components/ui/FlatIcon";
-import CloudProviderIconLink, { isCloudProvider } from "@/components/ui/CloudProviderIconLink";
+import { ArrowRight, DollarSign, Zap, Clock, Users, Server, HardDrive, Database, Globe } from "lucide-react";
 
-const services = [
+const caseStudyHighlights = [
   {
-    icon: "automation",
-    title: "DevOps Excellence",
-    description: "CI/CD pipeline optimization, automation strategies, and monitoring solutions for seamless deployments.",
-    items: ["CI/CD Pipelines", "GitOps", "Monitoring", "Container Orchestration"],
-    tools: ["docker", "kubernetes", "jenkins", "github"],
+    company: "Dukaan",
+    industry: "E-commerce SaaS",
+    costSaving: "98%",
+    perfGain: "20-40x IOPS",
+    metric: "$90K → $1.5K/mo",
+    icon: HardDrive,
   },
   {
-    icon: "cloud",
-    title: "Multi-Cloud Architecture",
-    description: "Best practices for AWS, Azure, GCP & Oracle Cloud with cost optimization and scalability strategies.",
-    items: ["Cloud Migration", "Hybrid Architecture", "Cost Optimization", "Auto-Scaling"],
-    tools: ["aws", "azure", "gcp", "oracle"],
+    company: "Zerodha",
+    industry: "Fintech / Trading",
+    costSaving: "Lean team",
+    perfGain: "1000x queries",
+    metric: "14M+ clients",
+    icon: Database,
   },
   {
-    icon: "server",
-    title: "Infrastructure as Code",
-    description: "Terraform, Ansible, and Pulumi expertise for reproducible, version-controlled infrastructure.",
-    items: ["Terraform Modules", "Ansible Playbooks", "State Management", "Drift Detection"],
-    tools: ["terraform", "github", "gitlab"],
+    company: "37signals",
+    industry: "SaaS / Basecamp",
+    costSaving: "$10M",
+    perfGain: "<1yr payback",
+    metric: "5-year savings",
+    icon: Server,
   },
   {
-    icon: "network",
-    title: "Network & Security",
-    description: "Zero-trust architecture, VPC design, and security hardening for enterprise-grade protection.",
-    items: ["Zero Trust", "VPC Design", "WAF Configuration", "Compliance"],
-    tools: ["security", "monitoring", "analytics"],
+    company: "Hathora",
+    industry: "Gaming Infra",
+    costSaving: "60-70%",
+    perfGain: "<50ms latency",
+    metric: "6 continents",
+    icon: Globe,
   },
 ];
 
@@ -46,76 +49,97 @@ const ServicesSection = () => {
       
       <div className="container relative mx-auto px-4">
         <div className="mx-auto mb-16 max-w-3xl text-center animate-fade-in">
-          <span className="mb-4 inline-block rounded-full border border-secondary/30 bg-secondary/5 px-4 py-1.5 text-sm font-medium text-secondary">
-            Expert Services
-          </span>
+          <Badge variant="outline" className="mb-4 border-primary/30 bg-primary/5 text-primary">
+            Proven Results
+          </Badge>
           <h2 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Our <span className="gradient-text-devops">Services</span>
+            Real <span className="gradient-text-devops">Startup Outcomes</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Expert consulting services starting at <span className="font-semibold text-primary">$5/hr</span> — enterprise-grade solutions at startup-friendly prices
+            These companies achieved massive cost reductions and performance gains. We implement the same patterns for your startup.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
-          {services.map((service, index) => (
+        {/* Case Study Highlights */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
+          {caseStudyHighlights.map((study, index) => (
             <Card 
               key={index} 
               className="group relative border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Hover glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
-              <CardHeader className="relative">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-card to-background ring-1 ring-border/50 transition-all duration-300 group-hover:ring-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:scale-110">
-                    <FlatIcon name={service.icon} size={28} />
+              <CardContent className="relative p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:scale-110">
+                    <study.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                    {study.costSaving}
+                  </Badge>
+                </div>
+                
+                <h3 className="font-semibold text-foreground mb-1">{study.company}</h3>
+                <p className="text-xs text-muted-foreground mb-3">{study.industry}</p>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Zap className="h-3.5 w-3.5 text-blue-500" />
+                    <span className="text-sm text-foreground">{study.perfGain}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    {service.tools.slice(0, 3).map((tool) => (
-                      <div 
-                        key={tool}
-                        className="rounded-lg bg-background/50 p-1.5 ring-1 ring-border/30 transition-all duration-300 group-hover:ring-primary/20"
-                      >
-                        {isCloudProvider(tool) ? (
-                          <CloudProviderIconLink provider={tool} size={18} />
-                        ) : (
-                          <FlatIcon name={tool} size={18} />
-                        )}
-                      </div>
-                    ))}
-                    {service.tools.length > 3 && (
-                      <span className="text-xs text-muted-foreground">+{service.tools.length - 3}</span>
-                    )}
+                    <DollarSign className="h-3.5 w-3.5 text-green-500" />
+                    <span className="text-sm text-muted-foreground">{study.metric}</span>
                   </div>
-                </div>
-                <CardTitle className="text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="relative space-y-5">
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </CardDescription>
-                <div className="flex flex-wrap gap-2">
-                  {service.items.map((item, itemIndex) => (
-                    <span
-                      key={itemIndex}
-                      className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-foreground ring-1 ring-primary/20 transition-all duration-300 group-hover:bg-primary/15 group-hover:ring-primary/30"
-                    >
-                      {item}
-                    </span>
-                  ))}
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <Link to="/services">
+        {/* Summary Stats */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-12">
+          <Card className="border-border/50 bg-card/30 backdrop-blur-sm p-5">
+            <div className="text-center">
+              <DollarSign className="h-6 w-6 text-green-500 mx-auto mb-2" />
+              <div className="text-2xl font-bold text-primary mb-1">60-98%</div>
+              <div className="text-xs text-muted-foreground">Cost Reduction</div>
+            </div>
+          </Card>
+          <Card className="border-border/50 bg-card/30 backdrop-blur-sm p-5">
+            <div className="text-center">
+              <Zap className="h-6 w-6 text-blue-500 mx-auto mb-2" />
+              <div className="text-2xl font-bold text-primary mb-1">20-1000x</div>
+              <div className="text-xs text-muted-foreground">Performance Gain</div>
+            </div>
+          </Card>
+          <Card className="border-border/50 bg-card/30 backdrop-blur-sm p-5">
+            <div className="text-center">
+              <Clock className="h-6 w-6 text-primary mx-auto mb-2" />
+              <div className="text-2xl font-bold text-primary mb-1">&lt;1 year</div>
+              <div className="text-xs text-muted-foreground">Hardware Payback</div>
+            </div>
+          </Card>
+          <Card className="border-border/50 bg-card/30 backdrop-blur-sm p-5">
+            <div className="text-center">
+              <Users className="h-6 w-6 text-muted-foreground mx-auto mb-2" />
+              <div className="text-2xl font-bold text-primary mb-1">4-30</div>
+              <div className="text-xs text-muted-foreground">Infra Team Size</div>
+            </div>
+          </Card>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <Link to="/case-studies">
             <Button size="lg" className="group gap-2 px-10 shadow-lg shadow-primary/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40">
-              View All Services
+              Read Full Case Studies
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
+          <Link to="/services">
+            <Button size="lg" variant="outline" className="gap-2 border-primary/30 transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-primary/5">
+              View Our Services
             </Button>
           </Link>
         </div>

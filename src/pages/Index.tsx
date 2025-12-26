@@ -11,8 +11,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>CloudRelic - Where Cloud Meets Code | AI-Powered DevOps Platform</title>
-        <meta name="description" content="Get expert-level DevOps guidance powered by AI. Instant solutions for infrastructure challenges across AWS, Azure, and GCP." />
+        <title>CloudRelic - Enterprise Infrastructure for Startups | 60-98% Cost Reduction</title>
+        <meta name="description" content="Infrastructure consulting for growth startups. Cloud cost optimization, bare metal migration, performance engineering. Same strategies as Dukaan, Zerodha, 37signals. From $5/hr." />
       </Helmet>
       <Layout>
         <HeroSection />

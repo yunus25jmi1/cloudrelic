@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TrendingDown, Zap, Shield, Clock } from "lucide-react";
 import FlatIcon from "@/components/ui/FlatIcon";
 import CloudProviderIconLink from "@/components/ui/CloudProviderIconLink";
+import { Badge } from "@/components/ui/badge";
 
 const HeroSection = () => {
   return (
@@ -23,33 +24,47 @@ const HeroSection = () => {
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 backdrop-blur-sm animate-fade-in transition-all hover:border-primary/50 hover:bg-primary/10">
             <FlatIcon name="lightning" size={18} className="animate-pulse" />
             <span className="text-sm font-medium text-foreground">
-              Multi-Cloud DevOps Platform
+              For Growth-Stage Startups
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
           </div>
 
           {/* Main Headline */}
           <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl lg:text-7xl animate-fade-in-up">
-            <span className="gradient-text-devops">Where Cloud</span>
+            <span className="gradient-text-devops">Enterprise Infrastructure</span>
             <br />
-            <span className="text-foreground">Meets Code</span>
+            <span className="text-foreground">Without the Complexity</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground sm:text-xl lg:text-2xl animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.1s' }}>
-            Expert-level DevOps guidance powered by AI. Instant solutions for{" "}
-            <span className="text-primary font-medium">AWS</span>,{" "}
-            <span className="text-secondary font-medium">GCP</span>,{" "}
-            <span className="text-accent font-medium">Azure</span> &{" "}
-            <span className="text-foreground font-medium">Oracle Cloud</span>.
+          <p className="mx-auto mb-6 max-w-3xl text-lg text-muted-foreground sm:text-xl lg:text-2xl animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.1s' }}>
+            The same infrastructure strategies that saved{" "}
+            <span className="text-primary font-semibold">Dukaan $88K/month</span> and{" "}
+            <span className="text-primary font-semibold">37signals $10M</span>—adapted for your startup.
           </p>
+
+          {/* Value props */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
+            <Badge variant="outline" className="gap-1.5 px-3 py-1.5 text-sm border-green-500/30 bg-green-500/5 text-green-600 dark:text-green-400">
+              <TrendingDown className="h-3.5 w-3.5" />
+              60-98% Cost Reduction
+            </Badge>
+            <Badge variant="outline" className="gap-1.5 px-3 py-1.5 text-sm border-blue-500/30 bg-blue-500/5 text-blue-600 dark:text-blue-400">
+              <Zap className="h-3.5 w-3.5" />
+              20-1000x Performance
+            </Badge>
+            <Badge variant="outline" className="gap-1.5 px-3 py-1.5 text-sm border-border bg-muted/50 text-muted-foreground">
+              <Clock className="h-3.5 w-3.5" />
+              From $5/hr
+            </Badge>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <Link to="/chat">
+            <Link to="/contact">
               <Button size="lg" className="group gap-2 px-10 py-6 text-base shadow-lg shadow-primary/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 glow-cyan">
-                <FlatIcon name="ai" size={20} />
-                Ask the Expert
+                <Shield className="h-5 w-5" />
+                Get Infrastructure Audit
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
@@ -63,7 +78,7 @@ const HeroSection = () => {
           {/* Cloud Provider Icons */}
           <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <p className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              Multi-Cloud Architecture Expertise
+              Multi-Cloud & Bare Metal Expertise
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
               {([
@@ -94,13 +109,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats */}
+          {/* Stats from Case Studies */}
           <div className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             {[
-              { icon: 'rocket', label: "Deployments", value: "60% Faster" },
-              { icon: 'performance', label: "Response Time", value: "<200ms" },
-              { icon: 'success', label: "Uptime", value: "99.99%" },
-              { icon: 'cost', label: "Cost Savings", value: "40% Avg" },
+              { icon: 'cost', label: "Dukaan Savings", value: "98%" },
+              { icon: 'performance', label: "Zerodha Query Speed", value: "1000x" },
+              { icon: 'server', label: "Flipkart Cores", value: "350K+" },
+              { icon: 'rocket', label: "37signals ROI", value: "<1yr" },
             ].map((stat, index) => (
               <div 
                 key={index} 

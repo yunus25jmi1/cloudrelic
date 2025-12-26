@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import FlatIcon from "@/components/ui/FlatIcon";
+import { ArrowRight, Shield, MessageSquare } from "lucide-react";
 import CloudProviderIconLink from "@/components/ui/CloudProviderIconLink";
+import FlatIcon from "@/components/ui/FlatIcon";
 
 const CTASection = () => {
   return (
@@ -23,54 +23,61 @@ const CTASection = () => {
           <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary-foreground/10 px-5 py-2.5 backdrop-blur-sm ring-1 ring-primary-foreground/20 transition-all hover:bg-primary-foreground/15">
             <FlatIcon name="rocket" size={20} />
             <span className="text-sm font-medium text-primary-foreground">
-              Start solving infrastructure challenges today
+              Stop overpaying for cloud infrastructure
             </span>
           </div>
 
           <h2 className="mb-6 text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-            Ready to Transform Your
+            Ready to Cut Your
             <br />
-            <span className="text-primary-foreground/90">DevOps Workflow?</span>
+            <span className="text-primary-foreground/90">Infrastructure Costs by 60-98%?</span>
           </h2>
 
           <p className="mb-10 text-lg text-primary-foreground/80 leading-relaxed">
-            Join thousands of DevOps engineers who trust CloudRelic for expert-level guidance 
-            and instant solutions across AWS, GCP, Azure & Oracle Cloud.
+            Get a free infrastructure audit and discover how much you could save with 
+            the same strategies used by Dukaan, Zerodha, and 37signals.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/chat">
+            <Link to="/contact">
               <Button
                 size="lg"
                 variant="secondary"
                 className="group gap-2 bg-primary-foreground px-10 py-6 text-base text-primary shadow-2xl shadow-background/30 transition-all duration-300 hover:scale-105 hover:bg-primary-foreground/95 hover:shadow-xl"
               >
-                <FlatIcon name="ai" size={20} />
-                Get Started Free
+                <Shield className="h-5 w-5" />
+                Get Free Audit
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link to="/chat">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-primary-foreground/30 px-10 py-6 text-base text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-primary-foreground/50 hover:bg-primary-foreground/10"
               >
-                Contact Us
+                <MessageSquare className="h-5 w-5 mr-2" />
+                Ask AI Expert
               </Button>
             </Link>
           </div>
 
-          {/* Cloud providers */}
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-6">
-            {(['aws', 'gcp', 'azure', 'oracle'] as const).map((provider) => (
-              <div 
-                key={provider}
-                className="rounded-lg bg-primary-foreground/10 p-3 ring-1 ring-primary-foreground/20 transition-all hover:bg-primary-foreground/15 hover:ring-primary-foreground/30"
-              >
-                <CloudProviderIconLink provider={provider} size={28} />
+          {/* Providers we work with */}
+          <div className="mt-14">
+            <p className="text-sm text-primary-foreground/60 mb-4">Cloud & Bare Metal Expertise</p>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {(['aws', 'gcp', 'azure', 'oracle'] as const).map((provider) => (
+                <div 
+                  key={provider}
+                  className="rounded-lg bg-primary-foreground/10 p-3 ring-1 ring-primary-foreground/20 transition-all hover:bg-primary-foreground/15 hover:ring-primary-foreground/30"
+                >
+                  <CloudProviderIconLink provider={provider} size={28} />
+                </div>
+              ))}
+              <div className="rounded-lg bg-primary-foreground/10 p-3 ring-1 ring-primary-foreground/20 transition-all hover:bg-primary-foreground/15 hover:ring-primary-foreground/30">
+                <FlatIcon name="server" size={28} />
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
