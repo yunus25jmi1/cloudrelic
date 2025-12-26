@@ -1,0 +1,8 @@
+name = "cloudrelic"
+compatibility_date = "2024-04-01"
+
+[pages]
+# This tells Cloudflare Pages what command to run to build your site.
+build_command = "npm run build"
+# This tells Cloudflare Pages where to find the built files.
+build_output_dir = "dist"
