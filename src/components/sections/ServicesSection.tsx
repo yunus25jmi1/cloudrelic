@@ -83,6 +83,7 @@ const ServicesSection = () => {
                         ) : (
                           <FlatIcon name={tool} size={18} />
                         )}
+                      </div>
                     ))}
                     {service.tools.length > 3 && (
                       <span className="text-xs text-muted-foreground">+{service.tools.length - 3}</span>
