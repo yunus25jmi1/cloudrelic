@@ -8,10 +8,10 @@ interface FlatIconProps {
 // Using Flaticon's uicons collection for consistent styling
 const iconMap: Record<string, string> = {
   // Cloud Providers
-  'aws': 'https://cdn-icons-png.flaticon.com/512/15466/15466163.png',
+  'aws': 'https://cdn-icons-png.flaticon.com/512/5968/5968848.png',
   'azure': 'https://cdn-icons-png.flaticon.com/512/873/873107.png',
-  'gcp': 'https://cdn-icons-png.flaticon.com/512/300/300218.png',
-  'oracle': 'https://cdn-icons-png.flaticon.com/512/5969/5969294.png',
+  'gcp': 'https://cdn-icons-png.flaticon.com/512/873/873117.png',
+  'oracle': 'https://cdn-icons-png.flaticon.com/512/5969/5969229.png',
   
   // DevOps Tools
   'docker': 'https://cdn-icons-png.flaticon.com/512/5969/5969059.png',
