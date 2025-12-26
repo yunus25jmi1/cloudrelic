@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, Cloud, Network, Server, Settings, TrendingDown, Zap, Shield, Target, DollarSign, Clock, Users } from "lucide-react";
+import { ArrowRight, Check, Cloud, Network, Server, Settings, TrendingDown, Zap, Shield, Target, DollarSign, Clock, Users, HardDrive, Cpu, Database, Globe, Activity } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Badge } from "@/components/ui/badge";
 import FlatIcon from "@/components/ui/FlatIcon";
@@ -368,7 +368,7 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Cost Comparison Table */}
+        {/* Cost & Performance Comparison Table */}
         <section className="border-t border-border/50 bg-card/30 py-20">
           <div className="container mx-auto px-4">
             <div className="mb-12 text-center">
@@ -376,10 +376,10 @@ const Services = () => {
                 Real Numbers
               </Badge>
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">
-                Cloud vs Bare Metal: Cost Comparison
+                Cloud vs Bare Metal: Cost & Performance
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Based on real data from our case studies. Your savings will vary based on workload characteristics.
+                Based on real data from our case studies. Your results will vary based on workload characteristics.
               </p>
             </div>
             
@@ -387,131 +387,285 @@ const Services = () => {
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-foreground">Company</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-foreground">Cloud Cost</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-foreground">Bare Metal Cost</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-foreground">Monthly Savings</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-foreground">Reduction</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-muted-foreground hidden lg:table-cell">Key Factor</th>
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-foreground">Company</th>
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-foreground">Cost Reduction</th>
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-foreground">Performance Gain</th>
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-foreground hidden md:table-cell">Key Metric</th>
+                    <th className="px-3 py-4 text-left text-sm font-semibold text-muted-foreground hidden lg:table-cell">Bottleneck Solved</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                    <td className="px-4 py-4">
+                    <td className="px-3 py-4">
                       <div className="flex items-center gap-2">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                           <span className="text-xs font-bold text-primary">D</span>
                         </div>
-                        <span className="font-medium text-foreground">Dukaan</span>
+                        <div>
+                          <span className="font-medium text-foreground block">Dukaan</span>
+                          <span className="text-xs text-muted-foreground">E-commerce SaaS</span>
+                        </div>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-muted-foreground">$90,000/mo</td>
-                    <td className="px-4 py-4 text-foreground font-medium">$1,500/mo</td>
-                    <td className="px-4 py-4">
-                      <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
-                        $88,500/mo
-                      </Badge>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          98% savings
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">$90K → $1.5K/mo</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4">
-                      <span className="font-bold text-primary">98%</span>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          20-40x IOPS
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">250K-450K vs 10K-20K</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-muted-foreground hidden lg:table-cell">Disk I/O bottleneck, NVMe solution</td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <HardDrive className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">7 min DR recovery</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Disk I/O → NVMe direct access
+                    </td>
                   </tr>
                   <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                    <td className="px-4 py-4">
+                    <td className="px-3 py-4">
+                      <div className="flex items-center gap-2">
+                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                          <span className="text-xs font-bold text-primary">F</span>
+                        </div>
+                        <div>
+                          <span className="font-medium text-foreground block">Flipkart</span>
+                          <span className="text-xs text-muted-foreground">Enterprise E-com</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          15% CPU savings
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">Hypervisor tax eliminated</div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          350K+ cores
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">30K+ pods managed</div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <Cpu className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">3000+ services</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Scale → K8s hybrid control plane
+                    </td>
+                  </tr>
+                  <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+                    <td className="px-3 py-4">
+                      <div className="flex items-center gap-2">
+                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                          <span className="text-xs font-bold text-primary">Z</span>
+                        </div>
+                        <div>
+                          <span className="font-medium text-foreground block">Zerodha</span>
+                          <span className="text-xs text-muted-foreground">Fintech / Trading</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          Lean ~30 team
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">FOSS-first approach</div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          1000x faster queries
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">ClickHouse analytics</div>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <Database className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">14M+ clients</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Latency → PostgreSQL as cache
+                    </td>
+                  </tr>
+                  <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+                    <td className="px-3 py-4">
                       <div className="flex items-center gap-2">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                           <span className="text-xs font-bold text-primary">37</span>
                         </div>
-                        <span className="font-medium text-foreground">37signals</span>
+                        <div>
+                          <span className="font-medium text-foreground block">37signals</span>
+                          <span className="text-xs text-muted-foreground">SaaS / Basecamp</span>
+                        </div>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-muted-foreground">$3.2M/year</td>
-                    <td className="px-4 py-4 text-foreground font-medium">$1.3M/year</td>
-                    <td className="px-4 py-4">
-                      <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
-                        $1.9M/year
-                      </Badge>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          $10M over 5yrs
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">$3.2M → $1.3M/yr</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4">
-                      <span className="font-bold text-primary">~60%</span>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          &lt;1yr payback
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">Hardware ROI</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-muted-foreground hidden lg:table-cell">Stable workload, Kamal deployment</td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <Server className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">0 headcount increase</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Cloud tax → Kamal + colocation
+                    </td>
                   </tr>
                   <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                    <td className="px-4 py-4">
+                    <td className="px-3 py-4">
                       <div className="flex items-center gap-2">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                           <span className="text-xs font-bold text-primary">H</span>
                         </div>
-                        <span className="font-medium text-foreground">Hathora</span>
+                        <div>
+                          <span className="font-medium text-foreground block">Hathora</span>
+                          <span className="text-xs text-muted-foreground">Gaming Infra</span>
+                        </div>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-muted-foreground">~$0.09/GB egress</td>
-                    <td className="px-4 py-4 text-foreground font-medium">~$0.009/GB</td>
-                    <td className="px-4 py-4">
-                      <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
-                        90% on egress
-                      </Badge>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          60-70% savings
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">90% on egress alone</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4">
-                      <span className="font-bold text-primary">60-70%</span>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          &lt;50ms latency
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">6 continents edge</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-muted-foreground hidden lg:table-cell">Bandwidth-intensive gaming</td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <Globe className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">6 person team</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Bandwidth → Talos + multi-provider
+                    </td>
                   </tr>
                   <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                    <td className="px-4 py-4">
+                    <td className="px-3 py-4">
                       <div className="flex items-center gap-2">
                         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                           <span className="text-xs font-bold text-primary">O</span>
                         </div>
-                        <span className="font-medium text-foreground">OneUptime</span>
+                        <div>
+                          <span className="font-medium text-foreground block">OneUptime</span>
+                          <span className="text-xs text-muted-foreground">Observability</span>
+                        </div>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-muted-foreground">$300K/year</td>
-                    <td className="px-4 py-4 text-foreground font-medium">$70K/year</td>
-                    <td className="px-4 py-4">
-                      <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
-                        $230K/year
-                      </Badge>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20">
+                          76% savings
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">$300K → $70K/yr</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4">
-                      <span className="font-bold text-primary">76%</span>
+                    <td className="px-3 py-4">
+                      <div className="space-y-1">
+                        <Badge className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20">
+                          19% less latency
+                        </Badge>
+                        <div className="text-xs text-muted-foreground">No noisy neighbors</div>
+                      </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-muted-foreground hidden lg:table-cell">Bandwidth + noisy neighbor fix</td>
+                    <td className="px-3 py-4 hidden md:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <Activity className="h-4 w-4 text-primary" />
+                        <span className="text-sm text-foreground">Cloud-independent</span>
+                      </div>
+                    </td>
+                    <td className="px-3 py-4 text-sm text-muted-foreground hidden lg:table-cell">
+                      Reliability → MicroK8s + Ceph
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {/* Summary Stats */}
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Card className="border-border/50 bg-card/50 p-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">60-98%</div>
-                  <div className="text-sm text-muted-foreground">Typical Savings Range</div>
+                  <DollarSign className="h-6 w-6 text-green-500 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary mb-1">60-98%</div>
+                  <div className="text-xs text-muted-foreground">Cost Reduction Range</div>
                 </div>
               </Card>
               <Card className="border-border/50 bg-card/50 p-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">&lt;1 year</div>
-                  <div className="text-sm text-muted-foreground">Hardware Payback Period</div>
+                  <Zap className="h-6 w-6 text-blue-500 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary mb-1">20-1000x</div>
+                  <div className="text-xs text-muted-foreground">Performance Improvement</div>
                 </div>
               </Card>
               <Card className="border-border/50 bg-card/50 p-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">0</div>
-                  <div className="text-sm text-muted-foreground">Additional Headcount Needed</div>
+                  <Clock className="h-6 w-6 text-primary mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary mb-1">&lt;1 year</div>
+                  <div className="text-xs text-muted-foreground">Hardware Payback</div>
+                </div>
+              </Card>
+              <Card className="border-border/50 bg-card/50 p-4">
+                <div className="text-center">
+                  <Users className="h-6 w-6 text-muted-foreground mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary mb-1">4-30</div>
+                  <div className="text-xs text-muted-foreground">Infra Team Size</div>
                 </div>
               </Card>
             </div>
             
             <div className="mt-8 text-center">
               <p className="text-sm text-muted-foreground mb-4">
-                Want to calculate your potential savings? Let's analyze your current cloud spend.
+                Want to calculate your potential savings and performance gains?
               </p>
               <Link to="/contact">
                 <Button className="gap-2">
-                  Get Free Cost Analysis
+                  Get Free Infrastructure Audit
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
