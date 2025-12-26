@@ -117,6 +117,71 @@ const technicalServices = [
   },
 ];
 
+// Bare metal providers we work with
+const bareMetalProviders = {
+  cloudIntegrated: [
+    {
+      name: "OVHcloud",
+      description: "Deploy in ~120 seconds via API",
+      regions: "Global (EU, US, APAC)",
+      bestFor: "Fast provisioning, European presence",
+    },
+    {
+      name: "Vultr",
+      description: "On-demand bare metal, 5-15 min delivery",
+      regions: "25+ locations worldwide",
+      bestFor: "Quick spin-up, developer-friendly",
+    },
+    {
+      name: "Hetzner",
+      description: "Cost-effective European bare metal",
+      regions: "Germany, Finland, US",
+      bestFor: "Best price/performance ratio",
+    },
+    {
+      name: "PhoenixNAP",
+      description: "API-driven global provisioning",
+      regions: "US, EU, APAC",
+      bestFor: "Enterprise workloads",
+    },
+    {
+      name: "Cherry Servers",
+      description: "Flexible APIs, automated provisioning",
+      regions: "EU, US",
+      bestFor: "Kubernetes bare metal",
+    },
+    {
+      name: "Scaleway",
+      description: "European cloud-like orchestration",
+      regions: "France, Netherlands, Poland",
+      bestFor: "EU data sovereignty",
+    },
+    {
+      name: "Equinix Metal",
+      description: "Premium global infrastructure",
+      regions: "20+ metros worldwide",
+      bestFor: "Low-latency, interconnection",
+    },
+  ],
+  cloudProviders: [
+    {
+      name: "AWS Bare Metal",
+      description: "EC2 i3.metal, c5.metal instances",
+      icon: "aws",
+    },
+    {
+      name: "Oracle Cloud",
+      description: "Bare Metal with deep customization",
+      icon: "oracle",
+    },
+    {
+      name: "IBM Cloud",
+      description: "SoftLayer-based global bare metal",
+      icon: "server",
+    },
+  ],
+};
+
 // Proven patterns from case studies
 const provenPatterns = [
   {
@@ -450,6 +515,100 @@ const Services = () => {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Bare Metal Providers Section */}
+        <section className="border-t border-border/50 py-20">
+          <div className="container mx-auto px-4">
+            <div className="mb-12 text-center">
+              <Badge variant="outline" className="mb-4 border-primary/30 bg-primary/5 text-primary">
+                Global Infrastructure Partners
+              </Badge>
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Bare Metal Providers We Work With
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We help you choose and deploy on the right provider based on your latency, compliance, and cost requirements.
+              </p>
+            </div>
+            
+            {/* Cloud-Integrated Bare Metal */}
+            <div className="mb-12">
+              <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
+                <Zap className="h-5 w-5 text-primary" />
+                Fast Provisioning (Minutes to Hours)
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {bareMetalProviders.cloudIntegrated.map((provider, index) => (
+                  <Card 
+                    key={index}
+                    className="border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 animate-fade-in"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                          <Server className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-foreground text-sm">{provider.name}</h4>
+                          <p className="text-xs text-muted-foreground mt-1">{provider.description}</p>
+                          <div className="mt-2 flex flex-wrap gap-1">
+                            <Badge variant="outline" className="text-xs px-1.5 py-0">
+                              {provider.regions}
+                            </Badge>
+                          </div>
+                          <p className="text-xs text-primary mt-2">{provider.bestFor}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+            
+            {/* Traditional Cloud Bare Metal */}
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
+                <Cloud className="h-5 w-5 text-muted-foreground" />
+                Cloud Provider Bare Metal Options
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {bareMetalProviders.cloudProviders.map((provider, index) => (
+                  <Card 
+                    key={index}
+                    className="border-border/50 bg-muted/30 backdrop-blur-sm transition-all duration-300 hover:border-border animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardContent className="p-4 flex items-center gap-3">
+                      <FlatIcon name={provider.icon} size={24} />
+                      <div>
+                        <h4 className="font-medium text-foreground text-sm">{provider.name}</h4>
+                        <p className="text-xs text-muted-foreground">{provider.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 text-center">
+                Cloud bare metal is useful for hybrid setups where you need tight integration with cloud services.
+              </p>
+            </div>
+            
+            <div className="mt-12 text-center">
+              <Card className="inline-block border-primary/20 bg-primary/5 p-6">
+                <p className="text-sm text-muted-foreground mb-3">
+                  Not sure which provider fits your workload?
+                </p>
+                <Link to="/contact">
+                  <Button className="gap-2">
+                    Get Provider Recommendation
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </Card>
             </div>
           </div>
         </section>
