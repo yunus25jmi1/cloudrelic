@@ -66,9 +66,9 @@ const ChatPreview = () => {
                 <Badge variant="secondary">Live Preview</Badge>
               </div>
             </CardHeader>
-            <CardContent className="p-0">
+            <CardContent className="flex max-h-[500px] flex-col overflow-hidden p-0">
               {/* Prompt Templates */}
-              <div className="flex flex-wrap gap-2 border-b border-border p-4">
+              <div className="flex flex-shrink-0 flex-wrap gap-2 border-b border-border p-4">
                 {promptTemplates.map((template, index) => (
                   <Button
                     key={index}
@@ -82,7 +82,7 @@ const ChatPreview = () => {
               </div>
 
               {/* Chat Messages */}
-              <div className="max-h-96 space-y-4 overflow-y-auto p-4">
+              <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4">
                 {mockMessages.map((message, index) => (
                   <div
                     key={index}
