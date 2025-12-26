@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FlatIcon from "@/components/ui/FlatIcon";
+import CloudProviderIconLink from "@/components/ui/CloudProviderIconLink";
 
 const HeroSection = () => {
   return (
@@ -65,12 +66,12 @@ const HeroSection = () => {
               Multi-Cloud Architecture Expertise
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-              {[
+              {([
                 { name: 'aws', label: 'AWS' },
                 { name: 'gcp', label: 'GCP' },
                 { name: 'azure', label: 'Azure' },
                 { name: 'oracle', label: 'Oracle' },
-              ].map((provider, index) => (
+              ] as const).map((provider, index) => (
                 <div 
                   key={provider.name}
                   className="group flex flex-col items-center gap-2 transition-all duration-300"
@@ -78,10 +79,11 @@ const HeroSection = () => {
                 >
                   <div className="relative rounded-xl border border-border/50 bg-card/50 p-4 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/30 group-hover:bg-card group-hover:shadow-lg group-hover:shadow-primary/10">
                     <div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 transition-opacity group-hover:opacity-100" />
-                    <FlatIcon 
-                      name={provider.name} 
-                      size={40} 
-                      className="relative transition-transform duration-300 group-hover:scale-110" 
+                    <CloudProviderIconLink
+                      provider={provider.name}
+                      size={40}
+                      className="relative"
+                      iconClassName="relative transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">

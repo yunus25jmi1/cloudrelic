@@ -1,4 +1,4 @@
-import FlatIcon from "@/components/ui/FlatIcon";
+import CloudProviderIconLink from "@/components/ui/CloudProviderIconLink";
 
 const providers = [
   { name: 'aws', label: 'Amazon Web Services' },
@@ -23,10 +23,11 @@ const CloudProviders = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 transition-opacity group-hover:opacity-100" />
-                <FlatIcon 
-                  name={provider.name} 
+                <CloudProviderIconLink 
+                  provider={provider.name as any}
                   size={48} 
-                  className="relative transition-transform duration-300 group-hover:scale-110" 
+                  className="relative"
+                  iconClassName="relative transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">

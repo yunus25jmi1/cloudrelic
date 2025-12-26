@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FlatIcon from "@/components/ui/FlatIcon";
+import CloudProviderIconLink from "@/components/ui/CloudProviderIconLink";
 
 const CTASection = () => {
   return (
@@ -62,12 +63,12 @@ const CTASection = () => {
 
           {/* Cloud providers */}
           <div className="mt-14 flex flex-wrap items-center justify-center gap-6">
-            {['aws', 'gcp', 'azure', 'oracle'].map((provider) => (
+            {(['aws', 'gcp', 'azure', 'oracle'] as const).map((provider) => (
               <div 
                 key={provider}
                 className="rounded-lg bg-primary-foreground/10 p-3 ring-1 ring-primary-foreground/20 transition-all hover:bg-primary-foreground/15 hover:ring-primary-foreground/30"
               >
-                <FlatIcon name={provider} size={28} />
+                <CloudProviderIconLink provider={provider} size={28} />
               </div>
             ))}
           </div>

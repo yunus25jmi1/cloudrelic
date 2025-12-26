@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import FlatIcon from "@/components/ui/FlatIcon";
+import CloudProviderIconLink, { isCloudProvider } from "@/components/ui/CloudProviderIconLink";
 
 const services = [
   {
@@ -77,8 +78,11 @@ const ServicesSection = () => {
                         key={tool}
                         className="rounded-lg bg-background/50 p-1.5 ring-1 ring-border/30 transition-all duration-300 group-hover:ring-primary/20"
                       >
-                        <FlatIcon name={tool} size={18} />
-                      </div>
+                        {isCloudProvider(tool) ? (
+                          <CloudProviderIconLink provider={tool} size={18} />
+                        ) : (
+                          <FlatIcon name={tool} size={18} />
+                        )}
                     ))}
                     {service.tools.length > 3 && (
                       <span className="text-xs text-muted-foreground">+{service.tools.length - 3}</span>
