@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Chat from "./pages/Chat";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/chat" element={<Chat />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
