@@ -4,10 +4,51 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import FlatIcon from "@/components/ui/FlatIcon";
-import { ArrowRight, TrendingUp, Clock, Users, DollarSign, CheckCircle } from "lucide-react";
+import { ArrowRight, TrendingUp, Clock, Users, DollarSign, CheckCircle, Server, Database } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const caseStudies = [
+  {
+    id: 'dukaan-bare-metal',
+    title: 'Cloud to Bare Metal: 98% Cost Reduction',
+    company: 'Dukaan',
+    industry: 'E-Commerce / D2C Platform',
+    cloudProviders: ['aws', 'gcp'],
+    featured: true,
+    challenge: 'Dukaan, a D2C platform for small retailers born during COVID, was spending $90,000/month on cloud infrastructure (AWS/GCP). With 3+ million daily users and unpredictable investor runway, they needed a sustainable cost model without compromising performance or reliability.',
+    solution: 'Executed a complete migration from cloud to 100 bare metal servers across multiple geographical locations. Implemented self-hosted PostgreSQL with real-time replication to GCP for disaster recovery. Built a microservices architecture on Kubernetes with ArgoCD for GitOps-based deployments.',
+    architecture: [
+      '100 bare metal servers across Mumbai, Delhi, Bangalore, Amsterdam',
+      'Self-hosted PostgreSQL with real-time WAL replication to GCS',
+      'Kubernetes clusters with ArgoCD for automated deployments',
+      'Microservices: Auth, Payments, Orders, Search, Analytics, Store',
+      'Cloudflare CDN for static asset delivery',
+      'GitHub Actions + Docker for CI/CD pipeline',
+      'Prometheus + Lens for monitoring and K8s management',
+      'Multi-priority worker queues (OTP, payments, marketing)',
+    ],
+    results: [
+      { metric: 'Cost Reduction', value: '98%', icon: DollarSign },
+      { metric: 'Monthly Savings', value: '$88.5K', icon: TrendingUp },
+      { metric: 'DR Recovery Time', value: '7 min', icon: Clock },
+      { metric: 'Infra Team Size', value: '4', icon: Users },
+    ],
+    testimonial: {
+      quote: "Our company is more likely to shut down than our hardware to fail. Modern NVME drives are incredibly reliable, and with proper architecture, a 4-person team can manage infrastructure that competitors need 6-7 engineers for.",
+      author: "Subhash Choudary",
+      role: "CTO, Dukaan",
+    },
+    duration: '~18 months evolution',
+    teamSize: '4 engineers (2 interns, 1 SRE, CTO)',
+    techStack: ['PostgreSQL', 'Docker', 'Kubernetes', 'Terraform', 'ArgoCD', 'Prometheus', 'Cloudflare'],
+    keyInsights: [
+      'Database disk I/O was the primary bottleneck, not CPU or memory',
+      'Bare metal eliminated virtualization overhead for database operations',
+      'Real-time cloud backup provides disaster recovery without managing geo-distributed systems',
+      'Service ownership model: each team owns their service, infra team owns platform availability',
+      'Provisioned for peak load (Shark Tank traffic: 80K users in 30 seconds)',
+    ],
+  },
   {
     id: 'fintech-scaling',
     title: 'FinTech Startup Scales to 10M Users',
@@ -162,9 +203,18 @@ const CaseStudies = () => {
               {caseStudies.map((study, index) => (
                 <Card 
                   key={study.id}
-                  className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 animate-fade-in-up"
+                  className={`group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 animate-fade-in-up ${study.featured ? 'ring-2 ring-primary/30' : ''}`}
                   style={{ animationDelay: `${index * 0.15}s` }}
                 >
+                  {/* Featured badge */}
+                  {study.featured && (
+                    <div className="absolute right-4 top-4 z-10">
+                      <Badge className="bg-primary text-primary-foreground shadow-lg">
+                        ⭐ Featured
+                      </Badge>
+                    </div>
+                  )}
+                  
                   {/* Gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   
@@ -187,7 +237,7 @@ const CaseStudies = () => {
                           {study.company}
                         </CardDescription>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 mt-8 sm:mt-0">
                         {study.cloudProviders.map((provider) => (
                           <div 
                             key={provider} 
@@ -238,6 +288,42 @@ const CaseStudies = () => {
                         ))}
                       </div>
                     </div>
+
+                    {/* Tech Stack (for featured studies) */}
+                    {study.techStack && (
+                      <div>
+                        <h4 className="mb-4 font-semibold text-foreground">Technology Stack</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {study.techStack.map((tech, i) => (
+                            <Badge 
+                              key={i}
+                              variant="outline"
+                              className="border-primary/30 bg-primary/5 text-foreground"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Key Insights (for featured studies) */}
+                    {study.keyInsights && (
+                      <div className="rounded-xl border border-accent/20 bg-accent/5 p-6">
+                        <h4 className="mb-4 flex items-center gap-2 font-semibold text-foreground">
+                          <Database className="h-5 w-5 text-accent" />
+                          Key Engineering Insights
+                        </h4>
+                        <ul className="space-y-2">
+                          {study.keyInsights.map((insight, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-secondary" />
+                              {insight}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     {/* Results */}
                     <div>
