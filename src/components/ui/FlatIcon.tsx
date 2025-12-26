@@ -1,3 +1,5 @@
+import awsIcon from "@/assets/icons/aws-icon.png";
+
 interface FlatIconProps {
   name: string;
   size?: number;
@@ -8,7 +10,7 @@ interface FlatIconProps {
 // Using Flaticon's uicons collection for consistent styling
 const iconMap: Record<string, string> = {
   // Cloud Providers
-  'aws': 'https://cdn-icons-png.flaticon.com/512/15466/15466163.png',
+  'aws': awsIcon,
   'azure': 'https://cdn-icons-png.flaticon.com/512/873/873107.png',
   'gcp': 'https://cdn-icons-png.flaticon.com/512/873/873117.png',
   'oracle': 'https://cdn-icons-png.flaticon.com/512/5969/5969229.png',
