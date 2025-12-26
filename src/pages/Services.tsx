@@ -75,11 +75,11 @@ const Services = () => {
         {/* Hero */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-6 text-4xl font-bold text-foreground sm:text-5xl">
+            <div className="mx-auto max-w-3xl text-center animate-fade-in">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                 Our Services
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Expert DevOps consulting and cloud architecture services to accelerate your infrastructure journey. Get personalized guidance from certified professionals.
               </p>
             </div>
@@ -91,13 +91,17 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="grid gap-8 lg:grid-cols-2">
               {services.map((service, index) => (
-                <Card key={index} className="border-border bg-card">
+                <Card 
+                  key={index} 
+                  className="border-border bg-card transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <CardHeader>
                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
                       <service.icon className="h-7 w-7 text-primary" />
                     </div>
-                    <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
-                    <CardDescription className="text-base">{service.description}</CardDescription>
+                    <CardTitle className="text-xl font-semibold text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <ul className="space-y-3">
@@ -111,7 +115,7 @@ const Services = () => {
                     <div className="flex items-center justify-between border-t border-border pt-4">
                       <span className="font-semibold text-primary">{service.price}</span>
                       <Link to="/contact">
-                        <Button size="sm" className="gap-2">
+                        <Button size="sm" className="gap-2 transition-transform hover:scale-105">
                           Get Started
                           <ArrowRight className="h-4 w-4" />
                         </Button>
@@ -127,19 +131,19 @@ const Services = () => {
         {/* AI Assistant CTA */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <Card className="border-border bg-primary">
+            <Card className="border-border bg-primary animate-fade-in">
               <CardContent className="p-8 text-center md:p-12">
-                <h2 className="mb-4 text-2xl font-bold text-primary-foreground md:text-3xl">
+                <h2 className="mb-4 text-2xl font-bold tracking-tight text-primary-foreground md:text-3xl">
                   Need Instant Help?
                 </h2>
-                <p className="mb-6 text-primary-foreground/80">
+                <p className="mb-6 text-primary-foreground/80 leading-relaxed">
                   Try our AI-powered DevOps assistant for immediate guidance on infrastructure challenges.
                 </p>
                 <Link to="/chat">
                   <Button
                     size="lg"
                     variant="secondary"
-                    className="gap-2 bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                    className="gap-2 bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-transform hover:scale-105"
                   >
                     Ask the AI Expert
                     <ArrowRight className="h-4 w-4" />

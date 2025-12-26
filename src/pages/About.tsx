@@ -64,8 +64,8 @@ const About = () => {
         {/* Hero */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-6 text-4xl font-bold text-foreground sm:text-5xl">
+            <div className="mx-auto max-w-3xl text-center animate-fade-in">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                 About CloudRelic
               </h1>
               <p className="text-lg text-muted-foreground">
@@ -79,15 +79,15 @@ const About = () => {
         <section className="border-t border-border bg-card/50 py-20">
           <div className="container mx-auto px-4">
             <div className="mx-auto grid max-w-4xl gap-12 md:grid-cols-2">
-              <div className="text-center md:text-left">
-                <h2 className="mb-4 text-2xl font-bold text-foreground">Our Mission</h2>
-                <p className="text-muted-foreground">
+              <div className="text-center md:text-left animate-fade-in-up">
+                <h2 className="mb-4 text-2xl font-bold tracking-tight text-foreground">Our Mission</h2>
+                <p className="text-muted-foreground leading-relaxed">
                   To democratize expert-level DevOps knowledge by providing AI-powered, personalized guidance that helps engineers solve infrastructure challenges faster and more efficiently.
                 </p>
               </div>
-              <div className="text-center md:text-left">
-                <h2 className="mb-4 text-2xl font-bold text-foreground">Our Vision</h2>
-                <p className="text-muted-foreground">
+              <div className="text-center md:text-left animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight text-foreground">Our Vision</h2>
+                <p className="text-muted-foreground leading-relaxed">
                   To become the go-to platform for DevOps professionals worldwide, where every engineer has access to expert-level guidance at their fingertips.
                 </p>
               </div>
@@ -98,18 +98,22 @@ const About = () => {
         {/* Values */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="mb-12 text-center text-3xl font-bold text-foreground">Our Values</h2>
+            <h2 className="mb-12 text-center text-3xl font-bold tracking-tight text-foreground animate-fade-in">Our Values</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {values.map((value, index) => (
-                <Card key={index} className="border-border bg-card text-center">
+                <Card 
+                  key={index} 
+                  className="border-border bg-card text-center transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <CardHeader>
                     <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                       <value.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle className="text-lg text-foreground">{value.title}</CardTitle>
+                    <CardTitle className="text-lg font-semibold text-foreground">{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription>{value.description}</CardDescription>
+                    <CardDescription className="leading-relaxed">{value.description}</CardDescription>
                   </CardContent>
                 </Card>
               ))}
@@ -120,10 +124,14 @@ const About = () => {
         {/* Team */}
         <section className="border-t border-border bg-card/50 py-20">
           <div className="container mx-auto px-4">
-            <h2 className="mb-12 text-center text-3xl font-bold text-foreground">Meet the Team</h2>
+            <h2 className="mb-12 text-center text-3xl font-bold tracking-tight text-foreground animate-fade-in">Meet the Team</h2>
             <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
               {teamMembers.map((member, index) => (
-                <Card key={index} className="border-border bg-card">
+                <Card 
+                  key={index} 
+                  className="border-border bg-card transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
                   <CardHeader className="text-center">
                     <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-primary/10">
                       <span className="text-5xl font-bold text-primary">
@@ -135,7 +143,7 @@ const About = () => {
                     <p className="text-sm text-muted-foreground">{member.title}</p>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-center text-sm text-muted-foreground">{member.bio}</p>
+                    <p className="text-center text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
                     
                     <div className="flex flex-wrap justify-center gap-2">
                       {member.expertise.map((skill, skillIndex) => (
@@ -147,7 +155,7 @@ const About = () => {
 
                     <div className="flex justify-center pt-2">
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" size="sm" className="gap-2">
+                        <Button variant="outline" size="sm" className="gap-2 transition-transform hover:scale-105">
                           <Linkedin className="h-4 w-4" />
                           {member.followers} followers
                         </Button>
@@ -163,20 +171,22 @@ const About = () => {
         {/* Workplace */}
         <section className="py-20">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="mb-8 text-3xl font-bold text-foreground">How We Work</h2>
+            <h2 className="mb-8 text-3xl font-bold tracking-tight text-foreground animate-fade-in">How We Work</h2>
             <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-3">
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="mb-2 font-semibold text-foreground">Remote-First</h3>
-                <p className="text-sm text-muted-foreground">Flexible hours with async-first communication</p>
-              </div>
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="mb-2 font-semibold text-foreground">Core Hours</h3>
-                <p className="text-sm text-muted-foreground">10AM-2PM for team collaboration</p>
-              </div>
-              <div className="rounded-lg border border-border bg-card p-6">
-                <h3 className="mb-2 font-semibold text-foreground">Learning-Focused</h3>
-                <p className="text-sm text-muted-foreground">Continuous improvement and growth</p>
-              </div>
+              {[
+                { title: "Remote-First", desc: "Flexible hours with async-first communication" },
+                { title: "Core Hours", desc: "10AM-2PM for team collaboration" },
+                { title: "Learning-Focused", desc: "Continuous improvement and growth" },
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className="rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <h3 className="mb-2 font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

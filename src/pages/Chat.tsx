@@ -258,7 +258,7 @@ How can I help you today?`,
       <Layout>
         <section className="py-8 md:py-12">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-4xl animate-scale-in">
               <Card className="flex h-[calc(100vh-200px)] min-h-[600px] flex-col border-border bg-card">
                 <CardHeader className="border-b border-border">
                   <div className="flex items-center justify-between">
