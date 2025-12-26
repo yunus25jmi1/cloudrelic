@@ -1,42 +1,49 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import FlatIcon from "@/components/ui/FlatIcon";
+import { Badge } from "@/components/ui/badge";
+import { TrendingDown, Server, Zap, Shield, Database, Clock } from "lucide-react";
 
 const features = [
   {
-    icon: "ai",
-    title: "Smart Infrastructure Assistant",
-    description: "AI analyzes your infrastructure challenges and provides targeted solutions with step-by-step guides and code snippets.",
-    gradient: "from-primary/20 to-primary/5",
+    icon: TrendingDown,
+    title: "Cloud Cost Optimization",
+    description: "Stop paying cloud tax. We analyze your infrastructure and identify 40-70% savings opportunities through right-sizing, reserved instances, and architecture optimization.",
+    badge: "Avg. 50% savings",
+    badgeColor: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
   },
   {
-    icon: "terminal",
-    title: "Real-Time Troubleshooting",
-    description: "Paste error messages and get instant root cause analysis with multiple solution paths and pros/cons.",
-    gradient: "from-secondary/20 to-secondary/5",
+    icon: Server,
+    title: "Bare Metal Migration",
+    description: "When cloud doesn't make sense anymore. We help you build Dukaan/37signals-style infrastructure with 60-98% cost reduction.",
+    badge: "98% max savings",
+    badgeColor: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
   },
   {
-    icon: "workflow",
-    title: "Best Practices Generator",
-    description: "AI reviews your setup and generates customized best practices aligned with AWS, Azure, GCP & Oracle standards.",
-    gradient: "from-accent/20 to-accent/5",
+    icon: Zap,
+    title: "Performance Engineering",
+    description: "Eliminate bottlenecks before they hurt. Disk I/O optimization, database query tuning, and p99 latency improvements.",
+    badge: "20-1000x faster",
+    badgeColor: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
   },
   {
-    icon: "learn",
-    title: "Learning Path Recommender",
-    description: "Personalized curriculum based on your expertise level with progressive skill development tracking.",
-    gradient: "from-primary/20 to-secondary/5",
+    icon: Shield,
+    title: "Reliability Architecture",
+    description: "Build Zerodha-style resilience with silo patterns, automated failover, and WAL streaming for near-zero RPO disaster recovery.",
+    badge: "99.9%+ uptime",
+    badgeColor: "bg-primary/10 text-primary border-primary/20",
   },
   {
-    icon: "database",
-    title: "Knowledge Integration",
-    description: "Access expert blogs, case studies, and troubleshooting guides integrated with AI responses.",
-    gradient: "from-secondary/20 to-accent/5",
+    icon: Database,
+    title: "Database Optimization",
+    description: "PostgreSQL tuning, ClickHouse for analytics, and caching strategies that delivered 1000x query improvements for fintech scale.",
+    badge: "Proven at scale",
+    badgeColor: "bg-secondary/10 text-secondary border-secondary/20",
   },
   {
-    icon: "security",
-    title: "Security-First Approach",
-    description: "Built with enterprise-grade security. SOC 2 compliant with secure authentication flows.",
-    gradient: "from-accent/20 to-primary/5",
+    icon: Clock,
+    title: "Rapid Implementation",
+    description: "No over-engineering. Right-sized solutions from day one. We won't sell you Kubernetes if a simple VM works for your use case.",
+    badge: "From $5/hr",
+    badgeColor: "bg-muted text-muted-foreground border-border",
   },
 ];
 
@@ -50,14 +57,14 @@ const FeaturesSection = () => {
       
       <div className="container relative mx-auto px-4">
         <div className="mx-auto mb-16 max-w-3xl text-center animate-fade-in">
-          <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-            Powered by AI
-          </span>
+          <Badge variant="outline" className="mb-4 border-primary/30 bg-primary/5 text-primary">
+            What We Do
+          </Badge>
           <h2 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            <span className="gradient-text-devops">AI-Powered</span> Features
+            <span className="gradient-text-devops">High-Impact</span> Infrastructure Services
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Everything you need to solve infrastructure challenges faster across your multi-cloud environment
+            The same strategies that power companies like Dukaan, Zerodha, Flipkart, and 37signals—without the enterprise complexity.
           </p>
         </div>
 
@@ -69,11 +76,16 @@ const FeaturesSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Card glow effect on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
               <CardHeader className="relative pb-2">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-card to-background ring-1 ring-border/50 transition-all duration-300 group-hover:ring-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:scale-110">
-                  <FlatIcon name={feature.icon} size={28} />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-card to-background ring-1 ring-border/50 transition-all duration-300 group-hover:ring-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:scale-110">
+                    <feature.icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <Badge variant="outline" className={`text-xs shrink-0 ${feature.badgeColor}`}>
+                    {feature.badge}
+                  </Badge>
                 </div>
                 <CardTitle className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">{feature.title}</CardTitle>
               </CardHeader>
