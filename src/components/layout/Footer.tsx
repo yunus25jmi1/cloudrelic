@@ -21,10 +21,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">Home</Link>
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">About</Link>
-              <Link to="/services" className="text-sm text-muted-foreground hover:text-foreground">Services</Link>
-              <Link to="/chat" className="text-sm text-muted-foreground hover:text-foreground">AI Expert</Link>
+              <Link to="/" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Home</Link>
+              <Link to="/blog" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+              <Link to="/services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Services</Link>
+              <Link to="/chat" className="text-sm text-muted-foreground transition-colors hover:text-foreground">AI Expert</Link>
             </div>
           </div>
 
