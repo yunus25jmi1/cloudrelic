@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
+
 import { Bot, Send, User, Sparkles, Trash2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -280,9 +280,9 @@ How can I help you today?`,
                   </div>
                 </CardHeader>
 
-                <CardContent className="flex flex-1 flex-col p-0">
+                <CardContent className="flex min-h-0 flex-1 flex-col overflow-hidden p-0">
                   {/* Prompt Templates */}
-                  <div className="flex flex-wrap gap-2 border-b border-border p-4">
+                  <div className="flex flex-shrink-0 flex-wrap gap-2 border-b border-border p-4">
                     <Sparkles className="h-4 w-4 text-primary" />
                     {promptTemplates.map((template, index) => (
                       <Button
@@ -298,7 +298,7 @@ How can I help you today?`,
                   </div>
 
                   {/* Chat Messages */}
-                  <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
+                  <div className="min-h-0 flex-1 overflow-y-auto p-4" ref={scrollAreaRef}>
                     <div className="space-y-4">
                       {messages.map((message, index) => (
                         <div
@@ -348,7 +348,7 @@ How can I help you today?`,
                         </div>
                       )}
                     </div>
-                  </ScrollArea>
+                  </div>
 
                   {/* Input Area */}
                   <div className="border-t border-border p-4">
