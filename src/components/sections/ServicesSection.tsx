@@ -34,8 +34,8 @@ const ServicesSection = () => {
   return (
     <section className="border-t border-border bg-card/50 py-20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+        <div className="mx-auto mb-12 max-w-2xl text-center animate-fade-in">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Our Services
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -45,22 +45,26 @@ const ServicesSection = () => {
 
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, index) => (
-            <Card key={index} className="border-border bg-card transition-all hover:border-primary/50">
+            <Card 
+              key={index} 
+              className="border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-foreground">{service.title}</CardTitle>
+                <CardTitle className="text-lg font-semibold text-foreground">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </CardDescription>
                 <div className="flex flex-wrap gap-2">
                   {service.items.map((item, itemIndex) => (
                     <span
                       key={itemIndex}
-                      className="rounded-full bg-secondary/20 px-3 py-1 text-xs text-muted-foreground"
+                      className="rounded-full bg-secondary/20 px-3 py-1 text-xs font-medium text-muted-foreground"
                     >
                       {item}
                     </span>
@@ -71,9 +75,9 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <Link to="/services">
-            <Button size="lg" variant="outline" className="gap-2">
+            <Button size="lg" variant="outline" className="gap-2 transition-transform hover:scale-105">
               View All Services
               <ArrowRight className="h-4 w-4" />
             </Button>

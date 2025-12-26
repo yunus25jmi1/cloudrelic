@@ -185,12 +185,12 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-medium text-foreground">Email</h4>
-                        <a href="mailto:yusuf@cloudrelic.io" className="text-sm text-muted-foreground hover:text-primary">
-                          yusuf@cloudrelic.io
+                        <a href="mailto:contact@yunus.eu.org" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                          contact@yunus.eu.org
                         </a>
                         <br />
-                        <a href="mailto:md.yunus@cloudrelic.io" className="text-sm text-muted-foreground hover:text-primary">
-                          md.yunus@cloudrelic.io
+                        <a href="mailto:yusuf@cloudrelic.io" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                          yusuf@cloudrelic.io
                         </a>
                       </div>
                     </div>
