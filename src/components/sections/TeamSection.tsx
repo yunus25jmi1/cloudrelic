@@ -5,6 +5,17 @@ import { Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
+    name: "Md Yunus",
+    role: "Founder & Product Lead",
+    title: "DevOps Engineer & Platform Architect",
+    expertise: ["Infrastructure Scaling", "CI/CD Optimization", "Platform Architecture"],
+    linkedin: "#",
+    email: "contact@yunus.eu.org",
+    certifications: "4x Oracle Certified",
+    followers: "2K+",
+    achievement: "60% faster deployments achieved",
+  },
+  {
     name: "Yusuf",
     role: "Co-Founder & Frontend Lead",
     title: "2x Oracle Certified | Java Backend Developer",
@@ -14,25 +25,14 @@ const teamMembers = [
     education: "Guru Nanak Dev University, Amritsar",
     followers: "1K+",
   },
-  {
-    name: "Md Yunus",
-    role: "Founder & Product Lead",
-    title: "DevOps Engineer & Platform Architect",
-    expertise: ["Infrastructure Scaling", "CI/CD Optimization", "Platform Architecture"],
-    linkedin: "#",
-    email: "md.yunus@cloudrelic.io",
-    certifications: "4x Oracle Certified",
-    followers: "2K+",
-    achievement: "60% faster deployments achieved",
-  },
 ];
 
 const TeamSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+        <div className="mx-auto mb-12 max-w-2xl text-center animate-fade-in">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Meet the Team
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -42,7 +42,12 @@ const TeamSection = () => {
 
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           {teamMembers.map((member, index) => (
-            <Card key={index} className="border-border bg-card">
+            <Card 
+              key={index} 
+              className="border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+            
               <CardHeader className="text-center">
                 <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
                   <span className="text-3xl font-bold text-primary">

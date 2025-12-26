@@ -44,11 +44,11 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground">Contact</h4>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:yusuf@cloudrelic.io"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                href="mailto:contact@yunus.eu.org"
+                className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
-                yusuf@cloudrelic.io
+                contact@yunus.eu.org
               </a>
               <a
                 href="https://www.linkedin.com/company/cloudrelic/"
