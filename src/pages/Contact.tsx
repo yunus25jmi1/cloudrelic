@@ -75,11 +75,11 @@ const Contact = () => {
       <Layout>
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-6 text-4xl font-bold text-foreground sm:text-5xl">
+            <div className="mx-auto max-w-3xl text-center animate-fade-in">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                 Contact Us
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Have a question or want to work with us? We'd love to hear from you.
               </p>
             </div>
@@ -90,7 +90,7 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
               {/* Contact Form */}
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card animate-fade-in-up">
                 <CardHeader>
                   <CardTitle className="text-foreground">Send us a message</CardTitle>
                   <CardDescription>
@@ -170,7 +170,7 @@ const Contact = () => {
               </Card>
 
               {/* Contact Info */}
-              <div className="space-y-8">
+              <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="text-foreground">Contact Information</CardTitle>
